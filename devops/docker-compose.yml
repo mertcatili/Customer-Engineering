@@ -1,0 +1,33 @@
+name: "customer-engineering"
+version: '3'
+services:
+  nestjs:
+    restart: always
+    build:
+      context: ../
+      dockerfile: ./devops/Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - ../:/var/www/html
+
+  mysql:
+    image: mysql:8.0
+    platform: linux/amd64
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+volumes:
+  mysql_data:
