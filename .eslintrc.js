@@ -1,25 +1,42 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: 'tsconfig.json',
-    tsconfigRootDir : __dirname, 
-    sourceType: 'module',
+  "env": {
+      "browser": true,
+      "es6": true,
+      "node": true,
+      "mocha": true
   },
-  plugins: ['@typescript-eslint/eslint-plugin'],
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+  "plugins": ["import"],
+  "parserOptions": {
+      "project": "./tsconfig.json"
+  },
+  "extends": [
+      "airbnb-typescript/base"
   ],
-  root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
-  ignorePatterns: ['.eslintrc.js'],
-  rules: {
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-  },
+  "rules": {
+      "@typescript-eslint/indent": [
+          4,
+          "tab"
+      ],
+      "no-tabs": 0,
+      "@typescript-eslint/quotes": ["error", "double"],
+      "semi": [
+          "error",
+          "always"
+      ],
+      "max-len": [
+          2,
+          180,
+          4
+      ],
+      "no-console": 0,
+      "linebreak-style": 0,
+      "global-require": 0,
+      "eslint linebreak-style": [
+          0,
+          "error",
+          "windows"
+      ],
+      "radix": 0,
+      "class-methods-use-this": 0
+  }
 };

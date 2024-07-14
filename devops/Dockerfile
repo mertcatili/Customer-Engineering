@@ -10,6 +10,7 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE ${PORT}
+EXPOSE 4444
+EXPOSE 9229 
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start:debug"]
