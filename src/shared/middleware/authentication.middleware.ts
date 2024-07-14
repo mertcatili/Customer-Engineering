@@ -2,6 +2,7 @@ import { NestMiddleware, Injectable } from "@nestjs/common";
 import { Request, Response, NextFunction } from "express";
 import { pathToRegexp } from "path-to-regexp";
 import { Logger } from "../utils/logger";
+import { ErrorResponseObject } from "../utils/Result";
 
 const jwt = require('jsonwebtoken');
 
@@ -41,7 +42,7 @@ export default class AuthMiddleware implements NestMiddleware {
 
             const decoded = jwt.verify(token.toString(), process.env.JWT_SECRET_KEY, (err, decoded) => {
                 if (err) {
-                    throw new Error("INVALID_TOKEN");
+                    throw new ErrorResponseObject("INVALID_TOKEN");
                 }
                 return {
                     message: decoded
@@ -63,7 +64,7 @@ export default class AuthMiddleware implements NestMiddleware {
             next();
         } else {
             this.logger.log(`Authentication error: Empty token!, ${token} `);
-            throw new Error("AUTHORIZATION_ERROR");
+            throw new ErrorResponseObject("AUTHORIZATION_ERROR");
         }
     }
 }

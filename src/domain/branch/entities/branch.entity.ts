@@ -6,20 +6,29 @@ export class Branch {
     id: string;
 
     @Column()
+    brand_id: string;
+
+    @Column()
     name: string;
 
     @Column()
-    fullAddress: string;
+    full_address: string;
 
-    @Column('decimal', { precision: 10, scale: 6 })
-    latitude: number;
+    @Column()
+    latitude: string;
 
-    @Column('decimal', { precision: 10, scale: 6 })
-    longitude: number;
+    @Column()
+    longitude: string;
 
     @Column()
     location: string;
 
     @Column()
     phone: string;
+
+    @Column()
+    is_active: boolean;
+
+    @Column()
+    created_at: Date;
 }

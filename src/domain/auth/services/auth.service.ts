@@ -72,7 +72,12 @@ export class AuthService {
             return new ErrorResult("USER_ALREADY_EXISTS");
         }
 
-        if (!requestDto.user.brandId) {
+        if (requestDto.user.role !== RoleTypes.Owner) {
+            return new ErrorResult("NOT_AUTHORIZED");
+        }
+
+        const owner = await this.userRepository.findOneByEmail(requestDto.user.email);
+        if (!owner.brand_id) {
             return new ErrorResult("UNKNOWN_BRAND");
         }
 
@@ -83,7 +88,7 @@ export class AuthService {
         user.name = requestDto.name;
         user.surname = requestDto.surname;
         user.role = RoleTypes.Employee;
-        user.brand_id = requestDto.user.brandId;
+        user.brand_id = owner.brand_id;
         await this.userRepository.saveUser(user);
 
         const response = new AddEmployeeResponseDto(user.email, password);
