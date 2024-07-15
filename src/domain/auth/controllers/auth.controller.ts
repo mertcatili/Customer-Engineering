@@ -8,6 +8,8 @@ import AuthResponseDto from '../dtos/auth.response.dto';
 import AddEmployeeRequestDto from '../dtos/add.employee.request.dto';
 import AddEmployeeResponseDto from '../dtos/add.employee.response.dto';
 import BaseResponseDto from '../../../application/dtos/base.response.dto' //'src/application/dtos/base.response.dto';
+import { RoleTypes } from '../../../infrastructure/enums/Enums';
+import Authorization from '../../../shared/decorators/authorization.decorator';
 
 @Controller("auth")
 export class AuthController {
@@ -31,6 +33,7 @@ export class AuthController {
 
     @Post("addEmployee")
     @Validator(AddEmployeeRequestDto)
+    @Authorization( [RoleTypes.Owner] )
     public async addEmployee(@Body() requestDto: AddEmployeeRequestDto): Promise<Result<AddEmployeeResponseDto>> {
         const response = await this.authService.addEmployee(requestDto);
         
