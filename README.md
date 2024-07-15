@@ -18,6 +18,5 @@ $ npm run docker:build
 ## Running the app
 
 ```bash
-# development
 $ npm run docker:build
 ```
