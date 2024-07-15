@@ -1,13 +1,13 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { Result, SuccessResult } from 'src/shared/utils/Result';
+import { Result, SuccessResult } from '../../../shared/utils/Result';
 import { AuthService } from '../services/auth.service';
 import RegisterRequestDto from '../dtos/register.request.dto';
-import Validator from 'src/shared/decorators/validation.decorator';
+import Validator from '../../../shared/decorators/validation.decorator' //'../../../shared/decorators/validation.decorator';
 import LoginRequestDto from '../dtos/login.request.dto';
 import AuthResponseDto from '../dtos/auth.response.dto';
 import AddEmployeeRequestDto from '../dtos/add.employee.request.dto';
 import AddEmployeeResponseDto from '../dtos/add.employee.response.dto';
-import BaseResponseDto from 'src/application/dtos/base.response.dto';
+import BaseResponseDto from '../../../application/dtos/base.response.dto' //'src/application/dtos/base.response.dto';
 
 @Controller("auth")
 export class AuthController {

@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { ErrorResult, Result, SuccessResult } from 'src/shared/utils/Result';
 import RegisterRequestDto from '../dtos/register.request.dto';
 import { UserRepository } from '../repositories/user.repository';
 import { User } from '../entities/user.entity';
 import AuthResponseDto from '../dtos/auth.response.dto';
 import LoginRequestDto from '../dtos/login.request.dto';
-import { RoleTypes } from 'src/infrastructure/enums/Enums';
-import { Crypto } from 'src/shared/utils/Crypto';
+import { RoleTypes } from '../../../infrastructure/enums/Enums';//'src/infrastructure/enums/Enums';
+import { CryptoService } from '../../../shared/utils/CryptoService';
 import AddEmployeeRequestDto from '../dtos/add.employee.request.dto';
 import AddEmployeeResponseDto from '../dtos/add.employee.response.dto';
-import BaseResponseDto from 'src/application/dtos/base.response.dto';
-import { BrandRepository } from 'src/domain/brand/repositories/brand.repository';
+import BaseResponseDto from '../../../application/dtos/base.response.dto'; //'src/application/dtos/base.response.dto';
+import { BrandRepository } from '../../brand/repositories/brand.repository' //'src/domain/brand/repositories/brand.repository';
+import { ErrorResult, Result, SuccessResult } from '../../../shared/utils/Result';
 
 const jwt = require('jsonwebtoken');
 const uuid = require("uuid");
@@ -20,7 +20,7 @@ export class AuthService {
     constructor(
         private userRepository: UserRepository,
         private brandRepository: BrandRepository,
-        private crypto: Crypto,
+        private crypto: CryptoService,
     ) { }
 
     public async register(requestDto: RegisterRequestDto): Promise<Result<BaseResponseDto>> {

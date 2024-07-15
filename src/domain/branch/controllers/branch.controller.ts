@@ -1,13 +1,13 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { Result } from 'src/shared/utils/Result';
-import Validator from 'src/shared/decorators/validation.decorator';
-import BaseResponseDto from 'src/application/dtos/base.response.dto';
+import { Result } from '../../../shared/utils/Result';
+import Validator from '../../../shared/decorators/validation.decorator';
+import BaseResponseDto from '../../../application/dtos/base.response.dto' //'src/application/dtos/base.response.dto';
 import CreateBranchRequestDto from '../dtos/create.branch.request.dto';
 import { BranchService } from '../services/branch.service';
 import UpdateBranchRequestDto from '../dtos/update.branch.request.dto';
-import BaseRequestDto from 'src/application/dtos/base.request.dto';
-import Authorization from 'src/shared/decorators/authorization.decorator';
-import { RoleTypes } from 'src/infrastructure/enums/Enums';
+import BaseRequestDto from '../../../application/dtos/base.request.dto';
+import Authorization from '../../../shared/decorators/authorization.decorator';
+import { RoleTypes } from '../../../infrastructure/enums/Enums';
 
 @Controller("branch")
 export class BranchController {

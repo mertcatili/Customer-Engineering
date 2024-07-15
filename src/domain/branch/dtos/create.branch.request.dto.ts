@@ -1,5 +1,5 @@
 import { IsBoolean, IsNumber, IsString } from "@nestjs/class-validator";
-import BaseRequestDto from "src/application/dtos/base.request.dto";
+import BaseRequestDto from "../../../application/dtos/base.request.dto";
 
 
 export default class CreateBranchRequestDto extends BaseRequestDto {

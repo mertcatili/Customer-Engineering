@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class Crypto {
+export class CryptoService {
     public async encodeBase64(data: string) {
         return Buffer.from(data).toString('base64');
     }

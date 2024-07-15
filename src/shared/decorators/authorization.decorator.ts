@@ -1,4 +1,4 @@
-import { RoleTypes } from "src/infrastructure/enums/Enums";
+import { RoleTypes } from "../../infrastructure/enums/Enums";
 import { ErrorResponseObject } from "../utils/Result";
 
 export default function Authorization(acceptableRoles: RoleTypes[]) {

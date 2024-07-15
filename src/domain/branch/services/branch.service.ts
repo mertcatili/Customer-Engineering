@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { ErrorResult, Result, SuccessResult } from 'src/shared/utils/Result';
-import BaseResponseDto from 'src/application/dtos/base.response.dto';
-import { RoleTypes } from 'src/infrastructure/enums/Enums';
-import { BranchRepository } from '../repositories/branch.repository';
+import { ErrorResult, Result, SuccessResult } from '../../../shared/utils/Result';
+import BaseRequestDto from '../../../application/dtos/base.request.dto';
+import BaseResponseDto from '../../../application/dtos/base.response.dto';
+import { UserRepository } from '../../auth/repositories/user.repository';
 import CreateBranchRequestDto from '../dtos/create.branch.request.dto';
-import { UserRepository } from 'src/domain/auth/repositories/user.repository';
-import { Branch } from '../entities/branch.entity';
 import UpdateBranchRequestDto from '../dtos/update.branch.request.dto';
-import BaseRequestDto from 'src/application/dtos/base.request.dto';
+import { Branch } from '../entities/branch.entity';
+import { BranchRepository } from '../repositories/branch.repository';
+
 
 const h3 = require('h3-js');
 

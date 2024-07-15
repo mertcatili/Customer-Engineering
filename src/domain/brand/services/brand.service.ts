@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { ErrorResult, Result, SuccessResult } from 'src/shared/utils/Result';
-import BaseResponseDto from 'src/application/dtos/base.response.dto';
+import { ErrorResult, Result, SuccessResult } from '../../../shared/utils/Result';
 import { BrandRepository } from '../repositories/brand.repository';
+import BaseResponseDto from '../../../application/dtos/base.response.dto';
+import { RoleTypes } from '../../../infrastructure/enums/Enums';
+import { UserRepository } from '../../auth/repositories/user.repository';
 import CreateBrandRequestDto from '../dtos/create.brand.request.dto';
-import { RoleTypes } from 'src/infrastructure/enums/Enums';
 import { Brand } from '../entities/brand.entity';
-import { UserRepository } from 'src/domain/auth/repositories/user.repository';
 
 @Injectable()
 export class BrandService {

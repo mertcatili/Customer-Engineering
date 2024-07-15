@@ -8,9 +8,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
-
 EXPOSE 4444
-EXPOSE 9229 
 
-CMD ["npm", "run", "start:debug"]
+CMD ["npm", "run", "start"]
